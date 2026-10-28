@@ -38,14 +38,14 @@ class ChatApp:
         self.root = root
         self.root.title("Bot bot")
         self.root.geometry("600x800")
-        self.root.config(bg="black")
+        self.root.config(bg="grey")
 
         #Shutdown to handle threading stuffs
         self.stop_event = threading.Event()
 
         #Chat bot section
         self.chat_area = scrolledtext.ScrolledText(root, wrap=tk.WORD, state='disabled', font=("Courier", 15, "bold"),
-                                                   foreground="green", background="black")
+                                                   foreground="black", background="white")
         self.chat_area.pack(padx=15, pady=15, fill="both", expand=True)
 
         #Spacer
@@ -62,7 +62,7 @@ class ChatApp:
         self.submit_button.pack(side="right", padx=(5,0))
 
         #Greeting message to kick off the convo
-        self.append_to_chat("Bot Bot", "Hi! I'm Bot Bot. Let 'er rip potato chip!")
+        self.append_to_chat("Bot Bot", "Hi!")
 
     def send_message(self):
         user_text = self.entry_field.get().strip()
@@ -81,7 +81,7 @@ class ChatApp:
         #Bot thinking
         random_num = random.randrange(0,4)
         random_thinking = [
-            "Trying to decipher your dumb ass question...",
+            "Trying to decipher your question...",
             "Thinking...intently...",
             "Hold my beer...",
             "Umm............hmm........."
