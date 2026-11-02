@@ -37,8 +37,9 @@ class ChatApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Bot bot")
-        self.root.geometry("600x800")
+        self.root.geometry("600x700+5+5")
         self.root.config(bg="grey")
+
 
         #Shutdown to handle threading stuffs
         self.stop_event = threading.Event()
@@ -46,15 +47,15 @@ class ChatApp:
         #Chat bot section
         self.chat_area = scrolledtext.ScrolledText(root, wrap=tk.WORD, state='disabled', font=("Courier", 15, "bold"),
                                                    foreground="black", background="white")
-        self.chat_area.pack(padx=15, pady=15, fill="both", expand=True)
+        self.chat_area.pack(padx=10, pady=10, fill="both", expand=True)
 
         #Spacer
         self.entry_frame = tk.Frame(root)
-        self.entry_frame.pack(padx=15, pady=(0, 15), fill="x")
+        self.entry_frame.pack(padx=10, pady=(0, 10), fill="x")
 
         #User entry field
         self.entry_field = tk.Entry(self.entry_frame, font=("Arial", 10))
-        self.entry_field.pack(side="left", padx=15, pady=15, expand=True, fill="x")
+        self.entry_field.pack(side="left", padx=10, pady=10, expand=True, fill="x")
         self.entry_field.bind("<Return>", lambda event: self.send_message())
 
         #Submit button
